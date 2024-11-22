@@ -1,0 +1,62 @@
+@Metadata.layer: #CORE
+annotate view Z_C_Product_M_KR with
+
+{
+  @UI.facet: [ { id:       'idProduct',
+                 purpose:  #STANDARD,
+                 type:     #IDENTIFICATION_REFERENCE,
+                 label:'Product',
+                 position: 10 }]
+
+  @UI:{
+    lineItem: [{
+        position: 10,
+        importance: #HIGH,
+        type: #STANDARD,
+        label: 'Product ID'
+    }],
+    identification: [{
+        position: 10,
+        label: 'Product ID'
+    }]
+  }
+  @Search.defaultSearchElement: true
+  ProductId;
+  @UI:{
+    lineItem: [{
+        position: 20,
+        importance: #HIGH,
+        type: #STANDARD,
+        label: 'Product Description'
+    }],
+    identification: [{
+        position: 20,
+        label: 'Product Description'
+    }]
+  }
+  @Search.defaultSearchElement: true
+  ProductDesc;
+  
+  @UI:{ 
+    lineItem: [{ 
+        position: 30,
+        importance: #HIGH,
+        type: #AS_DATAPOINT,
+        label: 'Average Rating'
+     }],
+    dataPoint: { 
+        qualifier: 'AverageRating',
+        targetValue: 5,
+        visualization: #RATING
+    }
+  }
+  AverageRating;
+
+  @UI.facet: [{ id: 'idRatings',
+                purpose: #STANDARD,
+                type: #LINEITEM_REFERENCE,
+                label: 'Product Ratings',
+                targetElement: '_Rating',
+                position: 20 } ]
+  _Rating;   
+}

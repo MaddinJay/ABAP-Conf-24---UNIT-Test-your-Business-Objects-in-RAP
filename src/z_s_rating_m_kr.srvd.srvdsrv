@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service for Managed Scenario'
+define service Z_S_Rating_M_KR {
+  expose Z_C_Rating_M_KR  as Rating;
+  expose Z_C_Product_M_KR as ProductManager;
+}
